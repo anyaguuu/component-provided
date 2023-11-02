@@ -716,12 +716,12 @@ parcelHelpers.export(exports, "View", ()=>View);
         form.addEventListener("submit", this.handleSubmit.bind(this), options); // binds
     }
     // every time removed
-    disconnectedCallBack() {
+    disconnectedCallback() {
         this.controller?.abort();
         this.controller = null;
     }
-    handleSubmit(eveent) {
-        event?.preventDefault();
+    handleSubmit(event) {
+        event.preventDefault();
         const checkboxes = this.shadowRoot?.querySelectorAll("input[type='checkbox']:checked");
         if (checkboxes === undefined) throw new Error("checkboxes not found");
         const values = [];
@@ -768,15 +768,15 @@ parcelHelpers.export(exports, "View", ()=>View);
     displayActivity(activity) {
         console.log(activity);
         if (this.shadowRoot) this.shadowRoot.innerHTML += `
-      <section>
-        <p>Activity: ${activity.activity}</p>
-        <p>Type: ${activity.type}</p>
-        <p>Participants: ${activity.participants}</p>
-        <p>Price: ${activity.price}</p>
-        <p>Link: ${activity.link}</p>
-        <p>Key: ${activity.key}</p>
-        <p>Accessibility: ${activity.accessibility}</p>
-      </section>
+        <section>
+          <p>Activity: ${activity.activity}</p>
+          <p>Type: ${activity.type}</p>
+          <p>Participants: ${activity.participants}</p>
+          <p>Price: ${activity.price}</p>
+          <p>Link: ${activity.link}</p>
+          <p>Key: ${activity.key}</p>
+          <p>Accessibility: ${activity.accessibility}</p>
+        </section>
       `;
         else throw new Error("shadowRoot does not exist");
     }

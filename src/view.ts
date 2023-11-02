@@ -68,13 +68,13 @@ class InputForm extends HTMLElement { // SO COMPONENT = INPUTFORM!!
   }
 
   // every time removed
-  disconnectedCallBack(): void {
+  disconnectedCallback(): void {
     this.controller?.abort();
     this.controller = null;
   }
 
-  handleSubmit(eveent: SubmitEvent) {
-    event?.preventDefault();
+  handleSubmit(event: SubmitEvent) {
+    event.preventDefault();
     const checkboxes = this.shadowRoot?.querySelectorAll(
       "input[type='checkbox']:checked",
     );
@@ -136,16 +136,16 @@ class ResultDisplay extends HTMLElement {
   displayActivity(activity: Activity): void {
     console.log(activity);
     if (this.shadowRoot) {
-      this.shadowRoot.innerHTML  += `
-      <section>
-        <p>Activity: ${activity.activity}</p>
-        <p>Type: ${activity.type}</p>
-        <p>Participants: ${activity.participants}</p>
-        <p>Price: ${activity.price}</p>
-        <p>Link: ${activity.link}</p>
-        <p>Key: ${activity.key}</p>
-        <p>Accessibility: ${activity.accessibility}</p>
-      </section>
+      this.shadowRoot.innerHTML += `
+        <section>
+          <p>Activity: ${activity.activity}</p>
+          <p>Type: ${activity.type}</p>
+          <p>Participants: ${activity.participants}</p>
+          <p>Price: ${activity.price}</p>
+          <p>Link: ${activity.link}</p>
+          <p>Key: ${activity.key}</p>
+          <p>Accessibility: ${activity.accessibility}</p>
+        </section>
       `;
     } else {
       throw new Error("shadowRoot does not exist");
