@@ -132,8 +132,28 @@ class ResultDisplay extends HTMLElement {
       throw new Error("shadowRoot does not exist");
     }
   }
+
+  displayActivity(activity: Activity): void {
+    console.log(activity);
+    if (this.shadowRoot) {
+      this.shadowRoot.innerHTML  += `
+      <section>
+        <p>Activity: ${activity.activity}</p>
+        <p>Type: ${activity.type}</p>
+        <p>Participants: ${activity.participants}</p>
+        <p>Price: ${activity.price}</p>
+        <p>Link: ${activity.link}</p>
+        <p>Key: ${activity.key}</p>
+        <p>Accessibility: ${activity.accessibility}</p>
+      </section>
+      `;
+    } else {
+      throw new Error("shadowRoot does not exist");
+    }
+  }
 }
 
+// now we define them
 customElements.define("input-form", InputForm);
 customElements.define("result-display", ResultDisplay);
 
