@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+text {
+  font-size: 30px;
+}
+
+button {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+input-form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
